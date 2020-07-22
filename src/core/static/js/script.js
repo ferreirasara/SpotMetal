@@ -1,3 +1,0 @@
-function selectAll() {
-    alert('teste');
-}

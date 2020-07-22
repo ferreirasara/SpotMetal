@@ -1,0 +1,1 @@
+web: gunicorn SpotMetal.wsgi --log-file -
