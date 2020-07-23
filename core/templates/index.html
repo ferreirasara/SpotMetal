@@ -10,75 +10,53 @@
     <title>SpotMetal</title>
 </head>
 <body>
-    <div class="wrapper">
-        <nav id="sidebar">
-            <div class="sidebar-header">
-            <h3>Bootstrap Sidebar</h3>
+    <nav class="navbar stick-top navbar-expand-lg navbar-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="/">SpotMetal</a>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0 navbar-left">
+                <li class="nav-item"><a class="nav-link" href="/"><i class="fa fa-home"></i> Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-line-chart"></i> Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-cog"></i> Settings</a></li>
+            </ul>
+            <div class="btn-group dropleft">
+                <button class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-user-circle"></i> User
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#"><i class="fa fa-user"></i> My Profile</a>
+                <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#"><i class="fa fa-sign-out"></i> Logout</a>
+                </div>
+            </div>
         </div>
-
-        <ul class="list-unstyled components">
-            <li class="active">
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
-                <ul class="collapse list-unstyled" id="homeSubmenu">
-                    <li>
-                        <a href="#">Home 1</a>
-                    </li>
-                    <li>
-                        <a href="#">Home 2</a>
-                    </li>
-                    <li>
-                        <a href="#">Home 3</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">About</a>
-            </li>
-            <li>
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
-                <ul class="collapse list-unstyled" id="pageSubmenu">
-                    <li>
-                        <a href="#">Page 1</a>
-                    </li>
-                    <li>
-                        <a href="#">Page 2</a>
-                    </li>
-                    <li>
-                        <a href="#">Page 3</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">Portfolio</a>
-            </li>
-            <li>
-                <a href="#">Contact</a>
-            </li>
-        </ul>
-        </nav>
-        <div id="content">
-            <div class="row text-light">
-                <div class="col-4">
-                    <h3>Search</h3>
+    </nav>
+    <div class="container-fluid">
+        <div class="row text-light justify-content-sm-between p-3">
+            <div class="col col-sm-5">
+                <div class="row">
+                    <div class="col-auto"><h3><i class="fa fa-search"></i> Search</h3></div>
                     <form>
                         <div class="p-1">
                             <div class="form-row">
                                 <div class="col-sm-3">
-                                    <label for="bandName" class="col-form-label col-form-label-sm">Band Name</label>
+                                    <label for="bandName" class="col-form-label col-form-label-sm"><b>Band Name</b></label>
                                     <input type="text" class="form-control form-control-sm" id="bandName">
                                 </div>
                                 <div class="col-sm-3">
-                                    <label for="genre" class="col-form-label col-form-label-sm">Genre</label>
+                                    <label for="genre" class="col-form-label col-form-label-sm"><b>Genre</b></label>
                                     <input type="text" class="form-control form-control-sm" id="genre">
                                 </div>
                                 <div class="col-sm-3">
-                                    <label for="country" class="col-form-label col-form-label-sm">Country</label>
+                                    <label for="country" class="col-form-label col-form-label-sm"><b>Country</b></label>
                                     <select id="country" class="form-control form-control-sm">
                                         <option selected>(Any)</option>
                                     </select>
                                 </div>
                                 <div class="col-sm-3">
-                                    <label for="status" class="col-form-label col-form-label-sm">Status</label>
+                                    <label for="status" class="col-form-label col-form-label-sm"><b>Status</b></label>
                                     <select id="status" class="form-control form-control-sm">
                                         <option selected>(Any)</option>
                                         <option>Active</option>
@@ -92,7 +70,7 @@
                             </div>
                             <div class="form-row">
                                 <div class="col-sm-8">
-                                    <label class="col-form-label col-form-label-sm">Year of formation</label><br>
+                                    <label class="col-form-label col-form-label-sm"><b>Year of formation</b></label><br>
                                     <div class="row">
                                         <div class="col-sm-2">
                                             <label for="from" class="col-form-label-sm">From</label>
@@ -109,21 +87,21 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-4">
-                                    <label for="lyricalThemes" class="col-form-label col-form-label-sm">Lyrical Themes</label>
+                                    <label for="lyricalThemes" class="col-form-label col-form-label-sm"><b>Lyrical Themes</b></label>
                                     <input type="text" class="form-control form-control-sm" id="lyricalThemes">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="col-sm-4">
-                                    <label for="city" class="col-form-label col-form-label-sm">City/state/province:</label>
+                                    <label for="city" class="col-form-label col-form-label-sm"><b>City/state/province:</b></label>
                                     <input type="text" class="form-control form-control-sm" id="city">
                                 </div>
                                 <div class="col-sm-4">
-                                    <label for="label" class="col-form-label col-form-label-sm">Label</label>
+                                    <label for="label" class="col-form-label col-form-label-sm"><b>Label</b></label>
                                     <input type="text" class="form-control form-control-sm" id="label">
                                 </div>
                                 <div class="col-sm-4">
-                                    <label for="additionalNotes" class="col-form-label col-form-label-sm">Additional notes</label>
+                                    <label for="additionalNotes" class="col-form-label col-form-label-sm"><b>Additional notes</b></label>
                                     <input type="text" class="form-control form-control-sm" id="additionalNotes">
                                 </div>
                             </div>
@@ -133,36 +111,39 @@
                         </div>
                     </form>
                 </div>
-                <div class="col-7">
-                    <h3>Results</h3>
-                    <button onclick="selectAll();" type="button" class="btn btn-sm btn-primary"><i class="fa fa-heart"></i> Make a Playlist</button>
-                    <div class="table-responsive">
-                        <table class="table table-sm table-hover table-dark">
-                            <thead>
-                                <tr>
-                                    <th scope="col"><input type="checkbox" value=""></th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Spotify Link</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><input type="checkbox" value=""></td>
-                                    <td>Bykürius</td>
-                                    <td><a href="https://open.spotify.com/artist/5HoHAFagoYtM2uozXoZZMu" class="badge badge-success">https://open.spotify.com/artist/5HoHAFagoYtM2uozXoZZMu</a></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" value=""></td>
-                                    <td>Occultus</td>
-                                    <td><a href="https://open.spotify.com/artist/4e03jwdMnavCjLKOjmNvUN" class="badge badge-success">https://open.spotify.com/artist/4e03jwdMnavCjLKOjmNvUN</a></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" value=""></td>
-                                    <td>Lothric</td>
-                                    <td><a href="https://open.spotify.com/artist/2zeakQ7fXq4V5sl5T3je1E" class="badge badge-success">https://open.spotify.com/artist/2zeakQ7fXq4V5sl5T3je1E</a></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                <div class="row">
+                    <div id="log" class="col-auto"><h3><i class="fa fa-history"></i> Log</h3></div>
+                    <textarea class="textArea form-control text-light bg-dark" rows="9" readonly></textarea>
+                </div>
+            </div>
+            <div class="col-md-auto"></div>
+            <div class="col col-sm-6">
+                <div class="row">
+                    <div class="col">
+                        <div class="row justify-content-sm-between">
+                            <div class="col-auto"><h3><i class="fa fa-check-circle"></i> Results</h3></div>
+                            <div class="col-auto"><button onclick="selectAll();" type="button" class="btn btn-sm btn-primary"><i class="fa fa-heart"></i> Make a Playlist</button></div>
+                        </div>
+                        <div class="row">
+                            <div class="table-responsive">
+                                <table id="resultTable" class="table table-sm table-hover table-dark">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col"><input id="thCheck" type="checkbox" value=""></th>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Spotify Link</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><input type="checkbox" value=""></td>
+                                            <td>Bykürius</td>
+                                            <td><a href="https://open.spotify.com/artist/5HoHAFagoYtM2uozXoZZMu" class="badge badge-success">https://open.spotify.com/artist/5HoHAFagoYtM2uozXoZZMu</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
