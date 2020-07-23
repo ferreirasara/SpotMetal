@@ -1,10 +1,13 @@
 var thCheck = document.getElementById("thCheck");
 var rows = document.getElementById("resultTable").rows;
-document.getElementById("").onclick = function () {
-    if (thCheck.checked) {
-        alert(rows[0].cells[0].childNodes.checked);
-        rows[0].cells[0].checked = true;
-    } else {
-        rows[0].cells[0].checked = false;
+var rowsLenght = document.getElementById("resultTable").rows.length;
+
+document.getElementById("thCheck").onclick = function () {
+    for (var i = 1; i < rowsLenght; i++) {
+        if (thCheck.checked == true) {
+            rows[i].cells[0].querySelector('input').checked = true;
+        } else {
+            rows[i].cells[0].querySelector('input').checked = false;
+        }
     }
 };
