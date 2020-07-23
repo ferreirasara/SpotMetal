@@ -59,13 +59,9 @@
                                 <div class="col-sm-3">
                                     <label for="status" class="col-form-label col-form-label-sm"><b>Status</b></label>
                                     <select id="status" class="form-control form-control-sm">
-                                        <option selected>(Any)</option>
-                                        <option>Active</option>
-                                        <option>On hold</option>
-                                        <option>Split-up</option>
-                                        <option>Unknown</option>
-                                        <option>Changed Name</option>
-                                        <option>Disputed</option>
+                                        {% for status in status %}
+                                            <option>{{ status }}</option>
+                                        {% endfor %}
                                     </select>
                                 </div>
                             </div>
