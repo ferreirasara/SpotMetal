@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '=74&(0&ew)=yew!fk^i-r%3wrw=34ld551nlw!i8#)f+y9y!l$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['spotmetal.herokuapp.com', 'localhost']
 

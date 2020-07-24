@@ -7,18 +7,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <title>SpotMetal - Home</title>
+    <title>SpotMetal - Search</title>
 </head>
 <body>
     <nav class="navbar stick-top navbar-expand-lg navbar-dark">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="{% url 'index' %}">SpotMetal</a>
+        <a class="navbar-brand" href="/">SpotMetal</a>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0 navbar-left">
-                <li class="nav-item"><a class="nav-link active" href="{% url 'index' %}"><i class="fa fa-home"></i> Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'search' %}"><i class="fa fa-search"></i> Search</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'index' %}"><i class="fa fa-home"></i> Home</a></li>
+                <li class="nav-item"><a class="nav-link active" href="{% url 'search' %}"><i class="fa fa-search"></i> Search</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'dashboard' %}"><i class="fa fa-line-chart"></i> Dashboard</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'settings' %}"><i class="fa fa-cog"></i> Settings</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'aboutUs' %}"><i class="fa fa-info"></i> About Us</a></li>
@@ -36,7 +36,34 @@
         </div>
     </nav>
     <div class="container p-3 text-light">
-
+        <div class="row">
+                    <div class="col">
+                        <div class="row justify-content-sm-between">
+                            <div class="col-auto"><h3><i class="fa fa-check-circle"></i> Results</h3></div>
+                            <div class="col-auto"><button onclick="selectAll();" type="button" class="btn btn-sm btn-primary"><i class="fa fa-heart"></i> Make a Playlist</button></div>
+                        </div>
+                        <div class="row">
+                            <div class="table-responsive">
+                                <table id="resultTable" class="table table-sm table-hover table-dark">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col"><input id="thCheck" type="checkbox" value=""></th>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Spotify Link</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><input type="checkbox" value=""></td>
+                                            <td>Bykürius</td>
+                                            <td><a href="https://open.spotify.com/artist/5HoHAFagoYtM2uozXoZZMu" class="badge badge-success">https://open.spotify.com/artist/5HoHAFagoYtM2uozXoZZMu</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
     </div>
     <!-- JS, Popper.js, and jQuery -->
     <script src="{% static 'js/script.js' %}"></script>

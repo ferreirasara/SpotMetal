@@ -1,5 +1,8 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from .models import Status
+from .forms import SearchForm
+
 
 def index(request):
     status = Status.objects.all()
@@ -11,8 +14,35 @@ def index(request):
     return render(request, 'index.html', context)
 
 
+def search(request):
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = SearchForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            # process the data in form.cleaned_data as required
+            print(request.POST.get('name'))
+            # redirect to a new URL:
+            return HttpResponseRedirect('results')
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = SearchForm()
+
+    return render(request, 'search.html', {'form': form})
+
+
 def dashboard(request):
     return render(request, 'dashboard.html')
+
+
+def aboutUs(request):
+    return render(request, 'about-us.html')
+
+
+def results(request):
+    return render(request, 'results.html')
 
 
 def settings(request):
