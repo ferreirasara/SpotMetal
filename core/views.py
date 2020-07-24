@@ -2,6 +2,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from .models import Status
 from .forms import SearchForm
+from .util import searchLinks
 
 
 def index(request):
@@ -22,9 +23,22 @@ def search(request):
         # check whether it's valid:
         if form.is_valid():
             # process the data in form.cleaned_data as required
-            print(request.POST.get('name'))
+
+            bands = searchLinks(
+                request.POST.get('name'),
+                request.POST.get('genre'),
+                request.POST.get('country'),
+                request.POST.get('status'),
+                request.POST.get('yearFrom'),
+                request.POST.get('yearTo'),
+                request.POST.get('lyricalThemes'),
+                request.POST.get('city'),
+                request.POST.get('label'),
+                request.POST.get('additionalNotes')
+            )
+            print(bands)
             # redirect to a new URL:
-            return HttpResponseRedirect('results')
+            return render(request, 'results.html', {'bands': bands})
 
     # if a GET (or any other method) we'll create a blank form
     else:

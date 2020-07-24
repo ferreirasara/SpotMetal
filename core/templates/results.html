@@ -37,33 +37,35 @@
     </nav>
     <div class="container p-3 text-light">
         <div class="row">
-                    <div class="col">
-                        <div class="row justify-content-sm-between">
-                            <div class="col-auto"><h3><i class="fa fa-check-circle"></i> Results</h3></div>
-                            <div class="col-auto"><button onclick="selectAll();" type="button" class="btn btn-sm btn-primary"><i class="fa fa-heart"></i> Make a Playlist</button></div>
-                        </div>
-                        <div class="row">
-                            <div class="table-responsive">
-                                <table id="resultTable" class="table table-sm table-hover table-dark">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col"><input id="thCheck" type="checkbox" value=""></th>
-                                            <th scope="col">Name</th>
-                                            <th scope="col">Spotify Link</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><input type="checkbox" value=""></td>
-                                            <td>Bykürius</td>
-                                            <td><a href="https://open.spotify.com/artist/5HoHAFagoYtM2uozXoZZMu" class="badge badge-success">https://open.spotify.com/artist/5HoHAFagoYtM2uozXoZZMu</a></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+            <div class="col">
+                <div class="row justify-content-sm-between">
+                    <div class="col-auto"><h3><i class="fa fa-check-circle"></i> Results</h3></div>
+                    <div class="col-auto"><button onclick="selectAll();" type="button" class="btn btn-sm btn-primary"><i class="fa fa-heart"></i> Make a Playlist</button></div>
+                </div>
+                <div class="row">
+                    <div class="table-responsive">
+                        <table id="resultTable" class="table table-sm table-hover table-dark">
+                            <thead>
+                                <tr>
+                                    <th scope="col"><input id="thCheck" type="checkbox" value=""></th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Spotify Link</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for band in bands %}
+                                    <tr>
+                                        <td><input type="checkbox" value=""></td>
+                                        <td>{{ band.0 }}</td>
+                                        <td><a href="{{ band.1 }}" class="badge badge-success">{{ band.1 }}</a></td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
+            </div>
+        </div>
     </div>
     <!-- JS, Popper.js, and jQuery -->
     <script src="{% static 'js/script.js' %}"></script>
