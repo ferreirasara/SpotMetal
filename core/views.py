@@ -25,18 +25,17 @@ def search(request):
             # process the data in form.cleaned_data as required
 
             bands = searchLinks(
-                request.POST.get('name'),
+                request.POST.get('bandName'),
                 request.POST.get('genre'),
                 request.POST.get('country'),
                 request.POST.get('status'),
-                request.POST.get('yearFrom'),
-                request.POST.get('yearTo'),
-                request.POST.get('lyricalThemes'),
-                request.POST.get('city'),
-                request.POST.get('label'),
-                request.POST.get('additionalNotes')
+                request.POST.get('yearCreationFrom'),
+                request.POST.get('yearCreationTo'),
+                request.POST.get('bandNotes'),
+                request.POST.get('themes'),
+                request.POST.get('location'),
+                request.POST.get('bandLabelName')
             )
-            print(bands)
             # redirect to a new URL:
             return render(request, 'results.html', {'bands': bands})
 

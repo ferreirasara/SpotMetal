@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 
 import requests
 
+
 def getTime():
     now = datetime.now()
     return str(now.hour).rjust(2, "0") + ":" + str(now.minute).rjust(2, "0")
@@ -41,12 +42,19 @@ def getLinks(htmlString):
     return soup.find_all('td')
 
 
-def searchLinks(bandName, genre, country, yearCreationFrom, yearCreationTo, bandNotes, status, themes, location,
+def searchLinks(bandName,
+                genre,
+                country,
+                status,
+                yearCreationFrom,
+                yearCreationTo,
+                bandNotes,
+                themes,
+                location,
                 bandLabelName):
     iDisplayStart = 0
     response = getJson(
-        "https://www.metal-archives.com/search/ajax-advanced/searching/bands/?bandName=" + bandName + "&genre=" + genre
-        + "&country=" + country + "&yearCreationFrom=" + yearCreationFrom + "&yearCreationTo=" + yearCreationTo +
+        "https://www.metal-archives.com/search/ajax-advanced/searching/bands/?bandName=" + bandName + "&genre=" + genre + "&country=" + country + "&yearCreationFrom=" + yearCreationFrom + "&yearCreationTo=" + yearCreationTo +
         "&bandNotes=" + bandNotes + "&status=" + status + "&themes=" + themes + "&location=" + location +
         "&bandLabelName=" + bandLabelName + "&sEcho=2&iColumns=3&sColumns=&iDisplayStart=" + str(
             iDisplayStart) + "&iDisplayLength=200&mDataProp_0=0&mDataProp_1=1&mDataProp_2=2&_=1590665381828")
