@@ -17,19 +17,17 @@
         <a class="navbar-brand" href="/">SpotMetal</a>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0 navbar-left">
-                <li class="nav-item"><a class="nav-link" href="{% url 'index' %}"><i class="fa fa-home"></i> Home</a></li>
-                <li class="nav-item"><a class="nav-link active" href="{% url 'search' %}"><i class="fa fa-search"></i> Search</a></li>
+                <li class="nav-item"><a class="nav-link active" href="{% url 'index' %}"><i class="fa fa-home"></i> Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'dashboard' %}"><i class="fa fa-line-chart"></i> Dashboard</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'settings' %}"><i class="fa fa-cog"></i> Settings</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'aboutUs' %}"><i class="fa fa-info"></i> About Us</a></li>
             </ul>
             <div class="btn-group dropdown">
-                <button class="btn btn-outline-light dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-sm btn-outline-light dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-user-circle"></i> User
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="#"><i class="fa fa-user"></i> My Profile</a>
-                <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#"><i class="fa fa-sign-out"></i> Logout</a>
                 </div>
             </div>
@@ -40,7 +38,17 @@
             <div class="col">
                 <div class="row justify-content-sm-between">
                     <div class="col-auto"><h3><i class="fa fa-check-circle"></i> Results</h3></div>
-                    <div class="col-auto"><button onclick="selectAll();" type="button" class="btn btn-sm btn-primary"><i class="fa fa-heart"></i> Make a Playlist</button></div>
+                    <div class="col-auto">
+                        <div class="btn-group dropdown">
+                        <button class="btn btn-sm btn-light dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-flash"></i> Options
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="#"><i class="fa fa-heart"></i> Make a Playlist</a>
+                            <a class="dropdown-item" href="#"><i class="fa fa-download"></i> Save to file</a>
+                        </div>
+                    </div>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="table-responsive">

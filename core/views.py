@@ -6,16 +6,13 @@ from .util import searchLinks
 
 
 def index(request):
-    status = Status.objects.all()
-
-    context = {
-        'status': status
-    }
-
-    return render(request, 'index.html', context)
-
-
-def search(request):
+    # status = Status.objects.all()
+    #
+    # context = {
+    #     'status': status
+    # }
+    #
+    # return render(request, 'index.html', context)
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
@@ -43,7 +40,7 @@ def search(request):
     else:
         form = SearchForm()
 
-    return render(request, 'search.html', {'form': form})
+    return render(request, 'index.html', {'form': form})
 
 
 def dashboard(request):

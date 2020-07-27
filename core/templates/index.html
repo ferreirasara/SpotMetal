@@ -1,4 +1,5 @@
 {% load static %}
+{% load custom_filters %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -18,7 +19,6 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0 navbar-left">
                 <li class="nav-item"><a class="nav-link active" href="{% url 'index' %}"><i class="fa fa-home"></i> Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'search' %}"><i class="fa fa-search"></i> Search</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'dashboard' %}"><i class="fa fa-line-chart"></i> Dashboard</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'settings' %}"><i class="fa fa-cog"></i> Settings</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'aboutUs' %}"><i class="fa fa-info"></i> About Us</a></li>
@@ -35,46 +35,83 @@
             </div>
         </div>
     </nav>
-    <div class="container text-light">
-        <div class="d-flex justify-content-center align-items-center h-75 p-4">
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="text-center bg-info card" style="width: 18rem;">
-                        <div class="card-header"><h5><i class="fa fa-search"></i> Search</h5></div>
-                        <div class="card-body">
-                            <p class="card-text">Lorem ipsum dolor sit amet.</p>
-                            <a href="{% url 'search' %}" class="btn btn-outline-light"><i class="fa fa-share-square-o"></i> Go</a>
-                        </div>
+    <div class="container-sm justify-content-center text-light p-3">
+        <h3><i class="fa fa-search"></i> Search</h3>
+        <form action="index" method="post">{% csrf_token %}
+            <div class="p-1">
+                <div class="form-row">
+                    <div class="col-sm-3">
+                        <label class="col-form-label col-form-label-sm"><b>Band Name</b></label>
+                        {{ form.bandName|addclass:"form-control form-control-sm" }}
+                    </div>
+                    <div class="col-sm-3">
+                        <label class="col-form-label col-form-label-sm"><b>Genre</b></label>
+                        {{ form.genre|addclass:"form-control form-control-sm" }}
+                    </div>
+                    <div class="col-sm-3">
+                        <label class="col-form-label col-form-label-sm"><b>Country</b></label>
+                        {{ form.country|addclass:"form-control form-control-sm" }}
+                    </div>
+                    <div class="col-sm-3">
+                        <label class="col-form-label col-form-label-sm"><b>Status</b></label>
+                        {{ form.status|addclass:"form-control form-control-sm" }}
                     </div>
                 </div>
-                <div class="col-sm-6">
-                    <div class="text-center bg-warning card" style="width: 18rem;">
-                        <div class="card-header"><h5><i class="fa fa-line-chart"></i> Dashboard</h5></div>
-                        <div class="card-body">
-                            <p class="card-text">Lorem ipsum dolor sit amet.</p>
-                            <a href="{% url 'dashboard' %}" class="btn btn-outline-light"><i class="fa fa-share-square-o"></i> Go</a>
+                <div class="form-row">
+                    <div class="col-sm-8">
+                        <label class="col-form-label col-form-label-sm"><b>Year of formation</b></label><br>
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <label class="col-form-label-sm">From</label>
+                            </div>
+                            <div class="col-sm-4">
+                                {{ form.yearCreationFrom|addclass:"form-control form-control-sm" }}
+                            </div>
+                            <div class="col-sm-1">
+                                <label class="col-form-label-sm">To</label>
+                            </div>
+                            <div class="col-sm-4">
+                                {{ form.yearCreationTo|addclass:"form-control form-control-sm" }}
+                            </div>
                         </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <label class="col-form-label col-form-label-sm"><b>Lyrical Themes</b></label>
+                        {{ form.themes|addclass:"form-control form-control-sm" }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-sm-4">
+                        <label class="col-form-label col-form-label-sm"><b>City/state/province:</b></label>
+                        {{ form.location|addclass:"form-control form-control-sm" }}
+                    </div>
+                    <div class="col-sm-4">
+                        <label class="col-form-label col-form-label-sm"><b>Label</b></label>
+                        {{ form.bandLabelName|addclass:"form-control form-control-sm" }}
+                    </div>
+                    <div class="col-sm-4">
+                        <label class="col-form-label col-form-label-sm"><b>Additional notes</b></label>
+                        {{ form.bandNotes|addclass:"form-control form-control-sm" }}
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="d-flex justify-content-center align-items-center h-75 p-4">
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="text-center bg-success card" style="width: 18rem;">
-                        <div class="card-header"><h5><i class="fa fa-cog"></i> Settings</h5></div>
-                        <div class="card-body">
-                            <p class="card-text">Lorem ipsum dolor sit amet.</p>
-                            <a href="{% url 'settings' %}" class="btn btn-outline-light"><i class="fa fa-share-square-o"></i> Go</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="text-center bg-danger card" style="width: 18rem;">
-                        <div class="card-header"><h5><i class="fa fa-info"></i> About Us</h5></div>
-                        <div class="card-body">
-                            <p class="card-text">Lorem ipsum dolor sit amet.</p>
-                            <a href="{% url 'aboutUs' %}" class="btn btn-outline-light"><i class="fa fa-share-square-o"></i> Go</a>
+            <button type="submit" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-search"></i> Search</button>
+        </form>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog text-dark">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h2 class="modal-title" id="exampleModalLabel">SpotMetal</h2>
+                        <div class="row mt-3">
+                            <div class="col-1">
+                                <div class="spinner-border" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                            </div>
+                            <div class="col-11"><h5>Searching...</h5></div>
                         </div>
                     </div>
                 </div>
