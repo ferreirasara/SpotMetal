@@ -1,18 +1,12 @@
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
-from .models import Status
+from .models import Search
 from .forms import SearchForm
 from .util import searchLinks
+from django.contrib import messages
 
 
 def index(request):
-    # status = Status.objects.all()
-    #
-    # context = {
-    #     'status': status
-    # }
-    #
-    # return render(request, 'index.html', context)
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
@@ -20,8 +14,7 @@ def index(request):
         # check whether it's valid:
         if form.is_valid():
             # process the data in form.cleaned_data as required
-
-            bands = searchLinks(
+            bandsLinks = searchLinks(
                 request.POST.get('bandName'),
                 request.POST.get('genre'),
                 request.POST.get('country'),
@@ -33,14 +26,40 @@ def index(request):
                 request.POST.get('location'),
                 request.POST.get('bandLabelName')
             )
+            # bandsLinks = [
+            #     ['bandName', 'spotifyLink'],
+            #     ['bandName', 'spotifyLink'],
+            #     ['bandName', 'spotifyLink'],
+            #     ['bandName', 'spotifyLink'],
+            #     ['bandName', 'spotifyLink'],
+            #     ['bandName', 'spotifyLink'],
+            #     ['bandName', 'spotifyLink'],
+            #     ['bandName', 'spotifyLink'],
+            #     ['bandName', 'spotifyLink'],
+            #     ['bandName', 'spotifyLink'],
+            #     ['bandName', 'spotifyLink'],
+            #     ['bandName', 'spotifyLink'],
+            #     ['bandName', 'spotifyLink'],
+            #     ['bandName', 'spotifyLink'],
+            #     ['bandName', 'spotifyLink'],
+            #     ['bandName', 'spotifyLink'],
+            #     ['bandName', 'spotifyLink'],
+            #     ['bandName', 'spotifyLink'],
+            # ]
+            # Save in DB
+            form.save()
             # redirect to a new URL:
-            return render(request, 'results.html', {'bands': bands})
+            return render(request, 'index.html', {'bands': bandsLinks, 'form': form})
 
     # if a GET (or any other method) we'll create a blank form
     else:
         form = SearchForm()
 
     return render(request, 'index.html', {'form': form})
+
+
+def saveToFile(request):
+    return render(request, 'dashboard.html')
 
 
 def dashboard(request):

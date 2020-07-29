@@ -12,6 +12,13 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import django_heroku
+from django.contrib.messages import constants as message_constants
+
+MESSAGE_TAGS = {
+    message_constants.SUCCESS: 'success',
+    message_constants.WARNING: 'warning',
+}
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

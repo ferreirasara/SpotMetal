@@ -1,7 +1,25 @@
 from django import forms
+from .models import Search
 
 
-class SearchForm(forms.Form):
+class SearchForm(forms.ModelForm):
+    class Meta:
+        model = Search
+        fields = [
+            'bandName',
+            'genre',
+            'country',
+            'status',
+            'yearCreationFrom',
+            'yearCreationTo',
+            'bandNotes',
+            'themes',
+            'location',
+            'bandLabelName'
+        ]
+
+
+class OLDSearchForm(forms.Form):
     COUNTRY_CHOICES = [
         ("", "(Any)"),
         ("AF", "Afghanistan"),

@@ -34,6 +34,16 @@
         </div>
     </nav>
     <div class="container p-3 text-light">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
         <div class="row">
             <div class="col">
                 <div class="row justify-content-sm-between">
@@ -45,7 +55,7 @@
                         </button>
                         <div class="dropdown-menu dropdown-menu-right">
                             <a class="dropdown-item" href="#"><i class="fa fa-heart"></i> Make a Playlist</a>
-                            <a class="dropdown-item" href="#"><i class="fa fa-download"></i> Save to file</a>
+                            <a class="dropdown-item" href="{% url 'saveToFile' %}"><i class="fa fa-download"></i> Save to file</a>
                         </div>
                     </div>
                     </div>
